@@ -28,7 +28,7 @@ func main() {
 
 	jwtHandler := helpers.SetupJWTHandler(mongoDB)
 
-	//gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 
 	const (
