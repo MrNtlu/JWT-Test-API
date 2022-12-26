@@ -18,6 +18,7 @@ func Close(ctx context.Context, client *mongo.Client, cancel context.CancelFunc)
 
 	defer func() {
 		if err := client.Disconnect(ctx); err != nil {
+			println(err)
 			panic(err)
 		}
 	}()
@@ -29,10 +30,11 @@ func Connect(uri string) (*MongoDB, context.Context, context.CancelFunc) {
 
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 	if err != nil {
+		println(err)
 		panic(err)
 	}
 
-	database := client.Database("asset-manager")
+	database := client.Database("test-api")
 
 	return &MongoDB{
 		Client:   client,
