@@ -11,5 +11,6 @@ Endpoints `/api` ->
     - POST `/login` 
     - POST `/register`
     - POST `/logout`
+    - GET `/refresh`
   - `/user` ->
     - GET `/info`

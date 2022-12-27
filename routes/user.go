@@ -16,6 +16,7 @@ func userRouter(router *gin.RouterGroup, jwtToken *jwt.GinJWTMiddleware, mongoDB
 		auth.POST("/login", jwtToken.LoginHandler)
 		auth.POST("/register", userController.Register)
 		auth.POST("/logout", jwtToken.LogoutHandler)
+		auth.GET("/refresh", jwtToken.RefreshHandler)
 	}
 
 	user := router.Group("/user").Use(jwtToken.MiddlewareFunc())
